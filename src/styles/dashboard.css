@@ -1,0 +1,9 @@
+.panel-estudiante{
+  margin-left: 400px;
+}
+@media (width < 980px) {
+  .panel-estudiante{
+    margin: 40px 40px;
+  }
+  
+}
