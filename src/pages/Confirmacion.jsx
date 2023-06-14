@@ -1,22 +1,22 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import "../styles/confirmar.css";
+import ClienteAxios from "../config/ClienteAxios";
+
+
 
 function Confirmacion() {
-  const [alerta, setAlerta] = useState("");
+
   const params = useParams();
   const { id } = params;
 
   useEffect(() => {
-    const confirmarCuentaAdmin = async () => {
+    const confirmarCuenta = async () => {
       try {
-        const urladmin = `${import.meta.env.VITE_CONFIRMAR_ADMIN}/${id}`;
-
-        await axios.get(urladmin);
+        await ClienteAxios(`/auth/usuario/confirmar/${id}`);
       } catch (error) {
+        console.log(error)
         setAlerta({
-          msg: error.response.data.msg,
+          msg: error.response.data.mensaje,
           error: true,
         });
     
@@ -24,32 +24,17 @@ function Confirmacion() {
 
       
     };
-    confirmarCuentaAdmin()
+    confirmarCuenta()
   }, []);
 
-  useEffect(() => {
-    const confirmarCuenta = async () => {
-      try {
-        const url = `${import.meta.env.VITE_CONFIRMAR_USUARIO}/${id}`;
-
-        await axios.get(url);
-      } catch (error) {
-        setAlerta({
-          msg: error.response.data.msg,
-          error: true,
-        });
-     
-      }
-    };
-    confirmarCuenta();
-  }, []);
 
   return (
-    <div className="confirmacion">
-      <h1>Tu Correo ha sido confirmado</h1>
+    <div className="flex items-center flex-col p-20 gap-10 bg-degradado fixed h-full w-full">
+     <h1 className="text-4xl text-white text-bold">Tu Correo ha sido confirmado</h1>
+      
 
-      <Link to="/auth/login/usuario">Iniciar sesion como usuario</Link>
-      <Link to="/auth/login/admin">Iniciar sesion como Administrador</Link>
+      <Link className="flex justify-center items-center bg-sky-500 rounded-md text-white h-10 font-semibold uppercase px-6" to="/login">Iniciar sesion</Link>
+
     </div>
   );
 }

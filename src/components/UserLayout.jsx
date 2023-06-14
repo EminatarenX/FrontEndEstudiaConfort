@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate,Outlet,Link } from "react-router-dom";
-import Modal from "./Modal";
 import '../styles/sidebar.css'
 import useAuth from "../hooks/useAuth";
 
@@ -21,14 +20,13 @@ function UserLayout() {
   };
   return (
     <>
-    {modal && <Modal/>}
-      <aside className="sidebar appear">
-        <h1>Bienvenido</h1>
-        <nav className="navbar desktop">
-          <Link to='/dashboard'>Habitaciones</Link>
-          <Link to='/dashboard/perfil'>Perfil</Link>
+      <aside className="bg-gradient-to-r from-sky-950 to-sky-900 w-[300px] h-full fixed flex flex-col px-4 py-8 animate-slide">
+        <h1 className="text-4xl text-white">Bienvenido</h1>
+        <nav className="flex flex-col gap-10 mt-10">
+          <Link className="links" to='/dashboard'>Habitaciones</Link>
+          <Link className="links" to='/dashboard/perfil'>Perfil</Link>
         </nav>
-        <span onClick={()=>setModal(!modal)} className="boton">&#9776;</span>
+      
         <Link onClick={cerrarSesion} className="cerrar-sesion  desktop">
           Cerrar sesion
         </Link>

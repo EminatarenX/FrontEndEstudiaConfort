@@ -10,8 +10,10 @@ import { AuthProvider } from "./context/AuthProvider";
 import { EstudiantesProvider } from "./context/EstudiantesProvider";
 
 import PrivateRoute from "./components/PrivateRoute";
+import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import ErrorPage from "./pages/ErrorPage";
+import NotFound from "./pages/NotFound";
 import HomeLayout from "./components/HomeLayout";
 import LoginUsuario from "./pages/LoginUsuario";
 import Confirmacion from "./pages/Confirmacion";
@@ -24,10 +26,11 @@ export default function App() {
         <EstudiantesProvider>
         <Routes>
           <Route path="/" element={<HomeLayout />} errorElement={<ErrorPage />}>
-            <Route index element={<h1>Home Page</h1>} />
+            <Route index element={<Index/>} />
             <Route path="/login" element={<LoginUsuario />} />
             <Route path="/registrar" element={<SignInStudent />} />
             <Route path="/confirmar/:id" element={<Confirmacion />} />
+            <Route path="*" element={<NotFound/>}/>
           </Route>
 
             <Route path="/dashboard" element={<PrivateRoute />}>

@@ -1,11 +1,20 @@
-* {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* * {
   padding: 0;
   margin: 0;
   font-family: "Lato", sans-serif;
+  
 }
 
+/* body{
+  background-color: rgba(235, 235, 235, 0.144);
+} */
 
-
+/* 
 .admin-header {
   display: flex;
   background-color: rgb(41, 41, 41);
@@ -121,4 +130,4 @@
   to{
     transform: translateX(0px);
   }
-}
+} */ 

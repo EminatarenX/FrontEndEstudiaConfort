@@ -16,8 +16,8 @@ function Dashboard() {
               
       </section>
 
-      <section >
-
+      <section className='hola'>
+            hola
       </section>
 
     </main>

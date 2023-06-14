@@ -1,5 +1,6 @@
 .panel-estudiante{
   margin-left: 400px;
+
 }
 @media (width < 980px) {
   .panel-estudiante{
@@ -7,3 +8,4 @@
   }
   
 }
+
