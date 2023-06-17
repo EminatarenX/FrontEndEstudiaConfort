@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useNavigate,Outlet,Link } from "react-router-dom";
-import '../styles/sidebar.css'
 import useAuth from "../hooks/useAuth";
 
 function UserLayout() {
-  const [modal, setModal] = useState(false)
+  const [aside, setAside] = useState(false)
   const {setAuth} = useAuth()
 
   const navigate = useNavigate();
@@ -19,18 +18,25 @@ function UserLayout() {
 
   };
   return (
-    <>
-      <aside className="bg-gradient-to-r from-sky-950 to-sky-900 w-[300px] h-full fixed flex flex-col px-4 py-8 animate-slide">
-        <h1 className="text-4xl text-white">Bienvenido</h1>
-        <nav className="flex flex-col gap-10 mt-10">
-          <Link className="links" to='/dashboard'>Habitaciones</Link>
-          <Link className="links" to='/dashboard/perfil'>Perfil</Link>
-        </nav>
-      
-        <Link onClick={cerrarSesion} className="cerrar-sesion  desktop">
-          Cerrar sesion
-        </Link>
+    <>  
+      <aside className={`lg:hidden fixed flex flex-col ${aside? 'right-0':' -right-[400px]'} bg-slate-800 px-32 gap-10 h-full pt-20 transition-all z-10`}>
+        <h1 className="text-white text-xl">Estudia<span className="text-sky-400">Confort</span></h1>
+        <Link to='/dashboard' className="text-white text-xl">Habitaciones</Link>
+        <Link to='/dashboard/perfil' className="text-white text-xl">Perfil</Link>
+        <button className="text-white text-xl">Cerrar Sesion</button>
       </aside>
+      <header className=" flex justify-between px-8 h-[100px] items-center bg-gradient-to-r from-slate-800 to-slate-600">
+      <h1 className="text-4xl text-white  animate-entrada ">
+          Estudia<span className="text-cyan-700">Confort</span>
+        </h1>
+        <nav className="flex gap-10 animate-entrada">
+          <Link to='/dashboard' className="hidden lg:flex text-md text-white border border-sky-200 hover:bg-slate-600 transition-all hover:-translate-y-1 h-12 w-[150px] justify-center items-center rounded font-semibold">Habitaciones</Link>
+          <Link to='/dashboard/perfil' className="hidden lg:flex text-md text-white border border-sky-200 hover:bg-slate-600 transition-all hover:-translate-y-1 h-12 w-[150px] justify-center items-center rounded font-semibold">Perfil</Link>
+          <button onClick={cerrarSesion} className="hidden lg:flex text-md text-white border border-sky-200 hover:bg-slate-600 transition-all hover:-translate-y-1 h-12 w-[150px] justify-center items-center rounded font-semibold">Cerrar Sesion</button>
+          <button className="lg:hidden z-10 text-3xl text-white" onClick={()=> setAside(!aside)}>&#8801;</button>
+        </nav>
+      </header>
+
       <Outlet />
     </>
   );

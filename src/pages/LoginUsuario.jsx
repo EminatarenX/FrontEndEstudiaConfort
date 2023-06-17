@@ -58,8 +58,8 @@ function LoginUsuario() {
 
 
   return (
-    <main className="flex justify-center bg-degradado h-full fixed w-full ">
-      <form className="my-[100px] flex flex-col gap-2 animate-slide transition-all xl:scale-100 scale-[1.1]" onSubmit={handleSubmit}>
+    <main className="flex justify-center items-center bg-degradado h-full fixed w-full ">
+      <form className="flex flex-col gap-2 animate-slide transition-all xl:scale-100 mb-52 p-14 scale-[1.1] animate-sombra" onSubmit={handleSubmit}>
         <label className="text-4xl font-semibold text-white mb-4" htmlFor="email">
           Iniciar Sesion
         </label>

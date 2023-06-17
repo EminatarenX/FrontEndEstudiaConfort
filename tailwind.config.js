@@ -31,13 +31,25 @@ export default {
           '100%': {
             rotate: '360deg'
           }
+        },
+        sombra:{
+          '0%':{
+            boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)'
+          },
+          '40%':{
+            boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25), 0 8px 10px -6px rgb(0 0 0 / 0.1)'
+          },
+          '100%':{
+            boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)'
+          }
         }
         
     },
       animation: {
-        entrada: 'entrada 2s',
-        slide: 'slide 1s',
-        rotacion: 'rotacion 8s infinite linear'
+        entrada: 'entrada 1s',
+        slide: 'slide 2s',
+        rotacion: 'rotacion 8s infinite linear',
+        sombra: 'sombra 5s infinite ease'
       },
       colors: {
         rojo: '#d41935',

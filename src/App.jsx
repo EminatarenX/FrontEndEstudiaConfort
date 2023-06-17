@@ -18,6 +18,8 @@ import HomeLayout from "./components/HomeLayout";
 import LoginUsuario from "./pages/LoginUsuario";
 import Confirmacion from "./pages/Confirmacion";
 import SignInStudent from "./pages/SignInStudent";
+import Habitacion from "./pages/Habitacion";
+import Perfil from "./pages/Perfil";
 
 export default function App() {
   return (
@@ -35,7 +37,8 @@ export default function App() {
 
             <Route path="/dashboard" element={<PrivateRoute />}>
               <Route index element={<Dashboard />} />
-              <Route path="perfil" element={<h1 style={{marginLeft: '400px'}}>Perfil</h1>}/>
+              <Route path="perfil" element={<Perfil/>}/>
+              <Route path="habitacion" element={<Habitacion/>} />
             </Route>
        
 
