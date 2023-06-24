@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ImagenesHabitaciones({previewBanio, previewImage, handleImageChange, imagenBanio}) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col justify-center">
     <div>
     <label htmlFor="habitacion">Foto de la habitación</label>
       {previewImage && (
@@ -53,6 +53,7 @@ export default function ImagenesHabitaciones({previewBanio, previewImage, handle
     <div className="mt-2">
       <input
         type="file"
+        accept='image/*'
         id="banio"
         onChange={imagenBanio}
         className="hidden"

@@ -31,7 +31,13 @@ const AuthProvider = ({children}) => {
       try {
         const {data} =  await ClienteAxios('/auth/usuario/perfil', config)
         setAuth(data) 
-        navigate('/dashboard')
+        if(data.role === 'admin') {
+          navigate('/admin')
+          
+        }else{
+          navigate('/dashboard')
+        }
+        
       } catch (error) {
         setAuth({})
       }

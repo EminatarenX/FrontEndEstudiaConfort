@@ -41,26 +41,26 @@ export default function AdminHabitaciones() {
         Agrega, modifica y elimina las habitaciones que los usuarios podran{" "}
         ver en su inicio
       </p>
-      <article className="h-400 bg-slate-200 ">
-        <form className="flex flex-col xl:flex-row justify-between">
+      <article className="h-400 bg-slate-200 p-5">
+        <form className="flex flex-col xl:flex-row justify-around">
           <div className="flex flex-col">
             <label>Descripcion</label>
-            <input
+            <textarea
               type="text"
-              placeholder="Nombre de la habitacion"
-              className="rounded"
+              placeholder="Describe el interior de la habitacion..."
+              className="rounded p-1 focus:outline-slate-300"
             />
             <label>Direccion</label>
             <input
               type="text"
               placeholder="Direccion de la habitacion"
-              className="rounded"
+              className="rounded p-1 focus:outline-slate-300"
             />
             <label>Precio</label>
             <input
               type="number"
               placeholder="Precio de la habitacion"
-              className="rounded"
+              className="rounded p-1 focus:outline-slate-300"
             />
             <label>Estado</label>
             <select name="" id="">

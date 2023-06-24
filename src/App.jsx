@@ -24,6 +24,7 @@ import Perfil from "./pages/Perfil";
 import AdminLayout from "./components/Layout";
 import AdminInicio from "./pages/AdminInicio";
 import AdminHabitaciones from "./pages/AdminHabitaciones";
+import PrivateAdmin from "./components/PrivateAdmin";
 
 
 export default function App() {
@@ -46,7 +47,7 @@ export default function App() {
               <Route path="habitacion" element={<Habitacion/>} />
             </Route>
 
-          <Route path="/admin" element={<AdminLayout/>}>
+          <Route path="/admin" element={<PrivateAdmin/>}>
             <Route index element={<AdminInicio/>}/>
             <Route path="habitaciones" element={<AdminHabitaciones/>}/> 
           </Route>

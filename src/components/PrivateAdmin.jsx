@@ -1,13 +1,12 @@
-import {useState} from 'react'
+import useAuth from '../hooks/useAuth'
 import { Navigate } from 'react-router-dom'
-
 import AdminLayout from './Layout'
+
 export default function PrivateAdmin() {
-  const [auth, cargando] = useState({
-    id: '1'
-  })
 
-  if(cargando) return "cargando"
+  const { auth, cargando } = useAuth();
 
-  return <>{auth.id ? <AdminLayout/> : <Navigate to='/login'/>}</>
+  if (cargando) return "cargando";
+
+  return <>{auth.role === 'admin' ? <AdminLayout/> : <Navigate to='/login'/>}</>
 }
