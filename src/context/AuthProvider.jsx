@@ -42,20 +42,6 @@ const AuthProvider = ({children}) => {
     autenticarUsuario()
   },[])
 
-
-// useEffect(() => {
-//     const onLocationChange = () => {
-//         if(auth) return navigate("/proyectos")
-//     }
- 
-//     window.addEventListener("popstate", onLocationChange)
- 
-//     return () => {
-//       window.removeEventListener("popstate", onLocationChange)
-//     }
-// }, [])
-
- 
   return(
     <AuthContext.Provider
       value={{

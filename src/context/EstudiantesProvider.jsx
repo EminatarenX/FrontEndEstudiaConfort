@@ -1,21 +1,39 @@
-import { createContext, useState } from "react";
-import axios from "axios";
+import { createContext, useEffect, useState } from "react";
+
 
 const EstudiantesContext = createContext();
 
 const EstudiantesProvider = ({ children }) => {
-  const [habitaciones, setHabitaciones] = useState([])
-  const [habitacion, setHabitacion] = useState({})
-  const [telefono, setTelefono] = useState('')
-  const [nombre_tutor, setNombreTutor] = useState('')
-  const [tel_tutor, setTelTutor] = useState('')
-  const [institucion, setInstitucion] = useState('')
+
+  const [habitacion, setHabitacion] = useState({
+    descripcion: 'Una recamara que tiene 2 camas y que consta con un banio una regadera y aire acondicionado para estas epocas de calor',
+  })
+
+  useEffect(()=>{
+    const obtenerHabitacion = async() => {
+      const token = localStorage.getItem('token')
+ 
+      if(!token) return
+      
+      const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+
+          }
+      }
+      
+      
+    }
+    obtenerHabitacion()
+  },[])
+
   
 
   return (
     <EstudiantesContext.Provider
-      value={{
-        habitaciones,
+      value={{  
+        
         habitacion
       }}
     >

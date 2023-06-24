@@ -23,7 +23,7 @@ function UserLayout() {
         <h1 className="text-white text-xl">Estudia<span className="text-sky-400">Confort</span></h1>
         <Link to='/dashboard' className="text-white text-xl">Habitaciones</Link>
         <Link to='/dashboard/perfil' className="text-white text-xl">Perfil</Link>
-        <button className="text-white text-xl">Cerrar Sesion</button>
+        <button onClick={cerrarSesion} className="text-white text-xl">Cerrar Sesion</button>
       </aside>
       <header className=" flex justify-between px-8 h-[100px] items-center bg-gradient-to-r from-slate-800 to-slate-600">
       <h1 className="text-4xl text-white  animate-entrada ">

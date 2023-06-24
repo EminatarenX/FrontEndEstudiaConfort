@@ -1,11 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ClienteAxios from "../config/ClienteAxios";
-
-
+import Swal from "sweetalert2";
 
 function Confirmacion() {
-
+  
   const params = useParams();
   const { id } = params;
 
@@ -14,11 +13,14 @@ function Confirmacion() {
       try {
         await ClienteAxios(`/auth/usuario/confirmar/${id}`);
       } catch (error) {
-        console.log(error)
-        setAlerta({
-          msg: error.response.data.mensaje,
-          error: true,
-        });
+    
+        Swal.fire({
+          position: 'top-end',
+          icon: 'warning',
+          title: `${error.response.data.mensaje}`,
+          showConfirmButton: false,
+          timer: 1500
+        })
     
       }
 

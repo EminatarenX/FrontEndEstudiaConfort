@@ -1,84 +1,75 @@
-import useEstudiantes from "../hooks/useEstudiantes";
-import TablaEstudiantes from "../components/TablaEstudiantes";
-import "../styles/adminIndex.css";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+
 
 function AdminInicio() {
-  const { estudiantes, obtenerEstudiantes } = useEstudiantes();
-  const {id} = useParams()
 
-  useEffect(()=>{
-    obtenerEstudiantes(id)
-  },[]) 
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    alert('filtrando')
-    
-  }
-  
   return (
-    <section className="panel-admin">
-      <h1 className="panel-titulo">Panel de administracion</h1>
-      <div className="contenedor-filtro">
-        <form onSubmit={handleSubmit} >
-          <label className="filtros-title">Filtros</label>
+    <main className="flex flex-col gap-5 p-2 mb-20">
+      <h1 className="text-4xl mt-5 text-center">Bienvenido al panel de Administrador</h1>
+      <p className="text-slate-600 text-2xl text-center">Tablas de Estudiantes</p>
 
-          <label className="sublabels" htmlFor="edificio">Edificio</label>
-          <select name="edificio" id="edificio">
-            <option value="">-- Selecciona una opcion</option>
-            <option value="E1">E1</option>
-            <option value="E2">E2</option>
-            <option value="E3">E3</option>
-          </select>
-          <label className="sublabels" htmlFor="estado">Estado de pago</label>
-          <select name="estado" id="estado">
-          <option value="">-- Selecciona una opcion</option>
-            <option value="pendiente">PENDIENTE</option>
-            <option value="pagado">PAGADO</option>
-          </select>
-          
-          <input className="submit-btn" type="submit" value='FILTRAR' />
-        </form>
-      
-      <div className="tabla-scroll">
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th className="on-mobile">Id</th>
-                <th>Nombre</th>
-                <th>Nombre tutor</th>
-                <th>Tel. Tutor</th>
-                <th className="on-mobile">Telefono</th>
-                <th className="on-mobile">Institucion Educativa</th>
-                <th>Edificio</th>
-                <th className="on-mobile">Habitacion</th>
-                <th>Renta</th>
-              </tr>
-            </thead>
-            <tbody>
-              {estudiantes.map((estudiante) => (
-                <TablaEstudiantes
-                  id={estudiante.id}
-                  nombre={estudiante.nombre}
-                  nombre_tutor={estudiante.nombre_tutor}
-                  institucion={estudiante.institucion}
-                  telefono={estudiante.telefono}
-                  tel_tutor={estudiante.tel_tutor}
-                  edificio={estudiante.edificio}
-                  habitacion={estudiante.habitacion}
-                  renta={estudiante.renta}
-                  key={estudiante.id}
-                />
-              ))}
-            </tbody>
-          </table>
+      <article className="flex bg-slate-300 gap-10 py-5 px-3 overflow-x-scroll scroll-smooth">
+        <section className="flex flex-col bg-slate-100 min-w-[350px] xl:min-w-[500px] border rounded-lg h-[600px] xl:h-[450px]">
+          <div className="flex justify-between bg-white p-2 shadow-lg m-1 rounded">
+            <h1 className="text-lg xl:text-md"><span className="mr-2 text-yellow-400 text-lg">&#9864;</span>Solicitudes</h1>
+            <span className="text-slate-500">5 solicitudes</span>
+          </div>
+          <div className="p-2">
+            <h1 className="text-slate-800 ">No hay registros</h1>
+            <div className="bg-white rounded shadow-lg p-2 flex gap-2">
+              <img src="" alt="imagen" />
+              <div>
+              <h2>Emiliano nataren</h2>
+              <p>Universidad Politecnica de Chiapas</p>
+              </div>
+              
+
+            </div>
+          </div>
+        </section>
+        <section className="flex flex-col bg-slate-100 min-w-[350px] xl:min-w-[500px] border rounded-lg h-[600px] xl:h-[450px]">
+        <div className="flex justify-between p-2 bg-white shadow-lg m-1 rounded">
+            <h1 className="text-lg xl:text-md"><span className="mr-2 text-lg text-blue-600">&#9864;</span>Estudiantes rentando</h1>
+            <span className="text-slate-500">5 estudiantes</span>
+          </div>
+          <div className="p-2">
+            <h1 className="text-slate-800 ">No hay registros</h1>
+          </div>
+        </section>
+        <section className="flex flex-col bg-slate-100 min-w-[350px] xl:min-w-[500px] border rounded-lg h-[600px] xl:h-[450px]">
+        <div className="flex justify-between p-2 shadow-lg m-1 rounded">
+            <h1 className="text-lg xl:text-md"><span className="mr-2 text-lg text-red-500">&#9864;</span>Pagos pendientes</h1>
+            <span className="text-slate-500">5 pagos</span>
+          </div>
+          <div className="p-2">
+            <h1 className="text-slate-800 ">No hay registros</h1>
+          </div>
+        </section>
+        <section className="flex flex-col bg-slate-100 min-w-[350px] xl:min-w-[500px] border rounded-lg h-[600px] xl:h-[450px]">
+        <div className="flex justify-between p-2 shadow-lg m-1 rounded">
+            <h1 className="text-lg xl:text-md"><span className="mr-2 text-lg text-green-600">&#9864;</span>Pagos realizados</h1>
+            <span className="text-slate-500">5 realizados</span>
+          </div>
+          <div className="p-2">
+            <h1 className="text-slate-800 ">No hay registros</h1>
+          </div>
+        </section>
+
+      </article>
+      <p className="text-slate-600 text-2xl text-center">Buscar Estudiates</p>
+      <form className="bg-slate-300 p-5 flex flex-col xl:flex-row justify-between">
+        <div className="bg-white p-2 flex gap-3 items-center rounded">
+        <label htmlFor="nombre">Ingresa la institucion del Estudiate</label>
+        <input 
+        className="p-2 shadow focus:outline-slate-200"
+        type="text" name="nombre" id="nombre" placeholder="nombre del estudiante"/>
         </div>
+        <div className="p2 flex flex-col items-center gap-2">
+          <ul className="bg-slate-400 h-40 w-40 rounded"></ul>
+          <ul className="h-5 rounded w-40 bg-slate-400"></ul>
+          <ul className="h-5 rounded w-40 bg-slate-400"></ul>
         </div>
-      </div>
-    </section>
+      </form>
+    </main>
   );
 }
 

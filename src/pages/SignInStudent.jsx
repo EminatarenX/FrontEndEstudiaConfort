@@ -73,7 +73,7 @@ const SignInStudent = () => {
   return (
     <main className='flex justify-center bg-degradado fixed h-full w-full'>
 
-      <form onSubmit={handleSubmit} className='animate-entrada mt-14 flex flex-col gap-2'>
+      <form onSubmit={handleSubmit} className='animate-entrada mt-14 p-5 flex flex-col gap-2'>
       <h1 className='mb-4 text-white text-4xl font-bold'>Bienvenido, regístrate <span>aquí</span></h1>
       {error.error && <Alerta error={error.msj}/>}
         <label className='text-xs capitalize text-white' htmlFor="nombre">Nombre completo</label>

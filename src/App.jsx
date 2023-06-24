@@ -1,3 +1,4 @@
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -20,6 +21,10 @@ import Confirmacion from "./pages/Confirmacion";
 import SignInStudent from "./pages/SignInStudent";
 import Habitacion from "./pages/Habitacion";
 import Perfil from "./pages/Perfil";
+import AdminLayout from "./components/Layout";
+import AdminInicio from "./pages/AdminInicio";
+import AdminHabitaciones from "./pages/AdminHabitaciones";
+
 
 export default function App() {
   return (
@@ -40,7 +45,11 @@ export default function App() {
               <Route path="perfil" element={<Perfil/>}/>
               <Route path="habitacion" element={<Habitacion/>} />
             </Route>
-       
+
+          <Route path="/admin" element={<AdminLayout/>}>
+            <Route index element={<AdminInicio/>}/>
+            <Route path="habitaciones" element={<AdminHabitaciones/>}/> 
+          </Route>
 
         </Routes>
         </EstudiantesProvider>

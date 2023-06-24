@@ -1,21 +1,18 @@
-import useEstudiantes from "../hooks/useEstudiantes";
+
 import useAuth from "../hooks/useAuth";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import ClienteAxios from "../config/ClienteAxios";
+
 
 export default function Perfil() {
-  const { habitaciones } = useEstudiantes();
+
   const {auth} = useAuth()
 
-  const {id} = auth
-
-  const [nombre, setNombre] = useState('')
+  const [nombre, setNombre] = useState(auth.nombre)
   const [telefono, setTelefono] = useState('')
   const [nombre_tutor, setNombreTutor] = useState('')
   const [tel_tutor, setTelTutor] = useState('')
   const [institucion, setInstitucion] = useState('')
-  const [datosPersonales, setDatosPersonales] = useState({})
 
   const actualizarDatos = (e) => {
     e.preventDefault()
@@ -41,23 +38,25 @@ export default function Perfil() {
 
 
   useEffect(()=>{
-    const obtenerDatosPersonales = async()=> {
-      const token = localStorage.getItem('token')
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
-
-        }
+    const completarDatosPersonales = () => {
+      if([telefono,nombre_tutor,tel_tutor,institucion].includes('')){
+        Swal.fire({
+          title: "Actualiza tu informacion personal!",
+          icon: "info",
+          showConfirmButton: false,
+          color: "#0e0a27",
+          iconColor: "#ffa528",
+          timer: '2000',
+          timerProgressBar:true,
+          
+        })
+      }
     }
-      const {data} = await ClienteAxios('/usuario',config)
- 
-      setDatosPersonales(data.datos)
-      console.log(data.datos)
-      setNombre(auth.nombre)
-    }
-    obtenerDatosPersonales()
+    completarDatosPersonales()
   },[])
+
+
+
   return (
     <main className="lg:fixed h-full w-full bg-gradient-to-r from-slate-800 to-slate-600">
       <div className="flex flex-col items-center gap-2">
