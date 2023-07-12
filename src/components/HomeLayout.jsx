@@ -12,21 +12,22 @@ function HomeLayout() {
         } transition-all`}
       ></div>
       <nav
-        className={`xl:sticky xl:top-0 flex justify-between h-[100px] bg-blue-950 items-center px-8  bg-degradado `}
+        className={`xl:sticky xl:top-0 flex justify-between h-[100px] bg-blue-950 items-center px-8  bg-degradado z-10`}
       >
-        <Link to="/" className="text-4xl text-white">
+        <Link to="/" className="text-4xl text-white font-semibold">
           Estudia<span className="text-cyan-950">Confort</span>
         </Link>
         <div className="flex gap-6 ">
           <Link
             to="/login"
-            className="hidden xl:block text-white cursor-pointer bg-sky-600 py-3 w-28 text-center rounded hover:scale-105 hover:bg-sky-500 transition-all"
+            
+            className="hidden xl:block text-white cursor-pointer border  py-4 w-[132px] text-center rounded hover:scale-105 hover:bg-sky-500 transition-all"
           >
             iniciar sesion
           </Link>
           <Link
             to="/registrar"
-            className="hidden xl:block text-white cursor-pointer bg-sky-600 py-3 w-28 text-center rounded hover:scale-105 hover:bg-sky-500 transition-all"
+            className="hidden xl:block text-white cursor-pointer border py-4 w-[132px] text-center rounded hover:scale-105 hover:bg-sky-500 transition-all"
           >
             Registrarse
           </Link>
@@ -71,6 +72,11 @@ function HomeLayout() {
         } transition-all`}
       ></div>
       <Outlet />
+      <footer className="bg-gradient-to-r from-slate-950 to-slate-800 p-20 pt-10">
+        <p className="text-center text-gray-500 text-sm">
+          &copy; EstudiaConfort 2023
+        </p>
+      </footer>
     </>
   );
 }

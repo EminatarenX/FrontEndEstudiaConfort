@@ -1,46 +1,86 @@
-// import "../styles/index.css";
+import { useEffect, useState } from "react";
+import estudiante from '../../public/estudiante.webp'
+import useEstudiantes from "../hooks/useEstudiantes";
 
 export default function Index() {
+  const [tuxtla, setTuxtla] = useState(true);
+  const [suchiapa, setSuchiapa] = useState(false);
+  const [sanCristobal, setSanCristobal] = useState(false);
+  const {getIndex, habitaciones, cargando, alerta} = useEstudiantes();
+
+  const setCiudades = (ciudad) => {
+    if(ciudad === 'tuxtla'){
+      setTuxtla(true);
+      setSuchiapa(false);
+      setSanCristobal(false);
+    }else if(ciudad === 'suchiapa'){
+      setTuxtla(false);
+      setSuchiapa(true);
+      setSanCristobal(false);
+    }else{
+      setTuxtla(false);
+      setSuchiapa(false);
+      setSanCristobal(true);
+    }
+
+  }
+
+  useEffect(() => {
+    getIndex();
+    
+  }, []);
+
+
+
   return (
-    <main >
-      <section className={`py-20 flex bg-degradado items-center justify-evenly  transition-all`}>
-        
-        <section className="animate-slide h-72 flex flex-col justify-center rounded-3xl gap-1 items-center" >
-          <div className="h-16 w-16 relative bg-white rotate-45  ">
-            <div className="h-10 w-10 relative bg-black top-2 left-2 rounded-l-md rounded-br-3xl"></div>
-          </div>
-          <h1 className="text-white text-center font-bold text-6xl">Estudia Confort</h1>
-          <p className="text-white text-2xl text-center ">El mejor lugar para vivir</p>
-        </section>
-        <section className="animate-slide xl:grid grid-cols-4 gap-3 max-w-[800px] hidden ">
-          <img className="col-span-1" src="https://gladstonehouse.agencydominion.net/uploads/2021/09/Gladstone_House_Guestroom-NoArt-King-1440x700.jpg" alt="" />
-          <img className="col-span-3 row-span-2"  src="https://gladstonehouse.agencydominion.net/uploads/2021/09/Gladstone_House_Guestroom-NoArt-King-1440x700.jpg" alt="" />
-          <img className="col-span-1"  src="https://www.thespruce.com/thmb/iMt63n8NGCojUETr6-T8oj-5-ns=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/PAinteriors-7-cafe9c2bd6be4823b9345e591e4f367f.jpg" alt="" />
-          <img  src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg" alt="" />
-          <img  src="https://www.xotels.com/wp-content/uploads/2020/03/hotel-room-type-xotels-hotel-management-company.webp" alt="" />
-          <img  src="https://www.bostonharborhotel.com/wp-content/uploads/2021/11/City-View-Suite-Bedroom_WEB-scaled.jpg" alt="" />
-          <img className="col-span-1 md:col-span-1" src="https://www.designingbuildings.co.uk/w/images/d/db/Bedroom.jpg" alt="" />
-        </section>
-
-        
-
-    </section>
-
-    <section className={` flex flex-col justify-between items-center gap-20  py-20 px-20 xl:gap-64 xl:flex-row bg-sky-900 transition-all`}>
-        <article className="animate-slide xl:h-[400px] flex flex-col gap-4 rounded-3xl ">
-          <h1 className="text-white font-bold text-2xl text-center">Comodidad</h1>
-          <p className="text-white text-center">Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos </p>
+    <main className="bg-degradado">
+      
+      <section className="flex flex-col lg:flex-row xl:pt-20 justify-between mx-10 xl:mx-40 items-center">
+        <article className="flex flex-col  xl:items-start gap-2 xl:gap-0">
+            <span className="bg-indigo-950 border-white shadow p-2 text-white font-semibold rounded w-48 text-center">Estudia comodamente</span>
+            <h1 className="text-white text-6xl font-bold mt-5">Estudia Confort</h1>
+            <p className="text-white mt-5 text-justify lg:w-[500px]">Bienvenido. con esta aplicacion tendras acceso a una aplia seleccion de 
+             departementos modermos y bien equipados. Ubicados estrategicamente cerca 
+             de las principales universidades y centros de estudio. </p>
+            <span className="text-white mt-10 font-bold text-lg cursor-pointer transition-all hover:scale-110">Conocenos <span className="text-xl ml-3">&#10157;</span></span>
         </article>
-        <article className="animate-slide xl:h-[400px] flex flex-col gap-4 rounded-3xl ">
-          <h1 className="text-white font-bold text-2xl text-center">Renta de Departamentos</h1>
-          <p className="text-white text-center">Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos</p>
-        </article>
-        <article className="animate-slide xl:h-[400px] flex flex-col gap-4 rounded-3xl ">
-          <h1 className="text-white font-bold text-2xl text-center">Precios Accesibles</h1>
-          <p className="text-white text-center">Mucho gusto mi nombre es emiliano nataren y somos chidos mMucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos Mucho gusto mi nombre es emiliano nataren y somos chidos</p>
-        </article>
-    </section>
+        <div className=" rounded-xl shadow-2xl lg:ml-14  xl:mr-32 bg-sky-500 lg:inline hidden ">
 
+          <img className="object-cover h-[400px]" src={estudiante} alt="estudiante" />
+
+        </div>
+      </section>
+
+      <section className="py-20 flex flex-col items-center gap-6">
+        <h1 className=" text-3xl font-bold text-white">Catalogo</h1>
+        <p className=" text-white">Registrate y explora las habitaciones y departamentos cerca de tu institucion</p>
+        <div className="w-full xl:w-[1000px] xl:rounded-full bg-sky-600 flex flex-col xl:flex-row justify-between">
+          <button onClick={()=> setCiudades('tuxtla')} className={`py-4 px-10 text-white ${tuxtla ? 'bg-cyan-500': ''} font-semibold hover:bg-cyan-500 duration-500 w-full rounded-full transition-all`}>
+            Tuxtla Gutierrez
+          </button>
+
+          <button onClick={()=> setCiudades('suchiapa')} className={`py-4 px-10 text-white ${suchiapa ? 'bg-cyan-500': ''} font-semibold hover:bg-cyan-500 duration-500 w-full rounded-full transition-all`}>
+            Proximamente
+          </button>
+
+          <button onClick={()=> setCiudades('sancris')} className={`py-4 px-10 text-white ${sanCristobal ? 'bg-cyan-500': ''} font-semibold bg-sky-600 hover:bg-cyan-500 duration-500 w-full rounded-full transition-all`}>
+            Proximamente
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          
+          {
+            cargando ? <p className="text-white">Cargando...</p> : 
+            habitaciones.map((habitacion) => (
+              <img className=" h-52 w-80 object-cover rounded-xl" src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${habitacion?.imagen1}`}/>
+            ))
+          }
+        </div>
+        {alerta.length > 0 && <p className="text-white ">{alerta}</p>}
+
+      </section>
+      
     </main>
   );
 }

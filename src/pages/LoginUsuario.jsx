@@ -3,7 +3,7 @@ import Alerta from "../components/Alerta";
 import ClienteAxios from "../config/ClienteAxios";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
-// import '../styles/login.css'
+
 
 function LoginUsuario() {
   const [correo, setCorreo] = useState("");
@@ -59,7 +59,7 @@ function LoginUsuario() {
 
   return (
     <main className="flex justify-center items-center bg-degradado h-full fixed w-full ">
-      <form className="flex flex-col gap-2 animate-slide transition-all xl:scale-100 mb-52 p-14 scale-[1.1] animate-sombra" 
+      <form className="flex flex-col gap-2 animate-slide transition-all xl:scale-100 mb-52 p-14 scale-[1.1] animate-sombra " 
       onSubmit={iniciarSesion}>
         <label className="text-4xl font-semibold text-white mb-4" htmlFor="email">
           Iniciar Sesion
@@ -73,6 +73,7 @@ function LoginUsuario() {
           type="email"
           name="email"
           onChange={(e) => setCorreo(e.target.value)}
+          placeholder="usuario@correo.com "
         />
         <label className="text-white text-sm capitalize" htmlFor="password">
           contraseña
@@ -82,6 +83,7 @@ function LoginUsuario() {
           type="password"
           name="password"
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="**********"
         />
         <input className="border-none h-12 bg-sky-600 text-white rounded-md mt-4 font-bold cursor-pointer hover:bg-sky-500 hover:scale-105 transition-all" type="submit" value="Iniciar sesion" />
       </form>

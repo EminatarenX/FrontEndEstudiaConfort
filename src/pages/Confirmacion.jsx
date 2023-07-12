@@ -16,8 +16,8 @@ function Confirmacion() {
     
         Swal.fire({
           position: 'top-end',
-          icon: 'warning',
-          title: `${error.response.data.mensaje}`,
+          icon: 'success',
+          title: `Tu cuenta a sido confirmada!`,
           showConfirmButton: false,
           timer: 1500
         })
