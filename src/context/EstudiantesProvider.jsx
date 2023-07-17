@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import ClienteAxios from "../config/ClienteAxios";
 import Swal from "sweetalert2";
 
@@ -15,6 +15,7 @@ const EstudiantesProvider = ({ children }) => {
   const [modal, setModal] = useState(false)
   const [habitacionSeleccionada, setHabitacionSeleccionada] = useState({})
   const [habitacionesAdmin, setHabitacionesAdmin] = useState([])
+  const [listaPagos, setListaPagos] = useState([])
   const actualizarDatosPersonales = async datosActualizados => {
 
     const token = localStorage.getItem('token')
@@ -41,7 +42,7 @@ const EstudiantesProvider = ({ children }) => {
       
     } catch (error) {
       setAlerta('No se pudo actualizar la informacion')
-    }
+    } finally{ setCargando(false)}
 
   }
 
@@ -65,7 +66,7 @@ const EstudiantesProvider = ({ children }) => {
     setEstudiantes(data)
   } catch (error) {
     setAlerta('No se pudo obtener la informacion de los estudiantes')
-  }
+  } finally{ setCargando(false)}
 
 }
 
@@ -89,7 +90,7 @@ const EstudiantesProvider = ({ children }) => {
         
       } catch (error) {
         setAlerta( 'No se pudo obtener la informacion del usuario')
-      }
+      } finally{ setCargando(false)}
       
     }
 
@@ -120,7 +121,7 @@ const EstudiantesProvider = ({ children }) => {
           title: "No se pudo rechazar la solicitud",
           icon: 'error',
         })
-      }
+      } finally{ setCargando(false)}
     }
 
     const cambiarEstado = async (id) => {
@@ -154,7 +155,7 @@ const EstudiantesProvider = ({ children }) => {
           title: "No se poudo actualizar el estado",
           icon: 'error',
         })
-      }
+      } finally{ setCargando(false)}
     }
 
     const obtenerHabitaciones = async () => {
@@ -173,7 +174,7 @@ const EstudiantesProvider = ({ children }) => {
         setHabitaciones(data)
       } catch (error) {
         setAlerta('No se pudo obtener la informacion de la habitacion')
-      }
+      } finally{ setCargando(false)}
 
     }
 
@@ -195,7 +196,7 @@ const EstudiantesProvider = ({ children }) => {
       } catch (error) {
         setAlerta('No se pudo obtener la informacion de la habitacion')
  
-      }
+      } finally{ setCargando(false)}
     }
 
     const enviarSolicitud = async (body) => {
@@ -222,7 +223,7 @@ const EstudiantesProvider = ({ children }) => {
           title: `${error.response.data.msg}`,
           icon: 'error',
         })
-      }
+      } finally{ setCargando(false)}
     }
 
     const submitHabitacion = async (habitacion, formdata) => {
@@ -274,7 +275,7 @@ const EstudiantesProvider = ({ children }) => {
           title: `${error.response.data.msg}`,
           icon: 'error',
         })
-      } 
+      } finally{ setCargando(false)}
     }
 
     const obtenerHabitacionesAdmin = async () => {
@@ -294,15 +295,11 @@ const EstudiantesProvider = ({ children }) => {
         setHabitacionesAdmin(data)
       } catch (error) {
         setAlerta('No se pudo obtener la informacion de la habitacion')
-      }
+      } finally{ setCargando(false)}
     }
     async function pagar(){
 
-      // const fechaActual = new Date();
-      // const mesActual = fechaActual.getMonth();
-      // const fechaProximoMes = new Date();
-      // fechaProximoMes.setMonth(mesActual + 1);
-      // const datetimeProximoMes = fechaProximoMes.toISOString();
+      setCargando(true)
       const fechaActual = new Date();
       const fechaProximoMinuto = new Date(fechaActual.getTime() + 60000); // Sumamos 60000 milisegundos (1 minuto)
       const datetimeProximoMinuto = fechaProximoMinuto.toISOString();
@@ -324,7 +321,7 @@ const EstudiantesProvider = ({ children }) => {
       } catch (error) {
           console.log(error)
           alert('No se pudo realizar el pago')
-      }
+      } finally{ setCargando(false)}
 
       
   }
@@ -415,10 +412,11 @@ const EstudiantesProvider = ({ children }) => {
       Swal.fire({
         title: 'No se pudo modificar la el estado de la renta',
       })
-    }
+    } finally{ setCargando(false)}
   }
 
   const obtenerHabitacionUsuario = async() => {
+    setCargando(true)
     const token = localStorage.getItem('token')
     if(!token) return
 
@@ -432,9 +430,73 @@ const EstudiantesProvider = ({ children }) => {
     try {
       const {data} = await ClienteAxios('/usuario/habitacion', config)
       setHabitacion(data)
+      
     } catch (error) {
       setAlerta('No se pudo obtener la informacion de la habitacion')
+    }finally{ setCargando(false)}
+  }
+
+  const pagoEstudiante = async (body,id_habitacion) => {
+    setCargando(true)
+
+    const token = localStorage.getItem('token')
+    if(!token) return
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+
+      }
     }
+
+    try {
+      await ClienteAxios.post(`/usuario/pagar/${id_habitacion}`, body, config)
+      
+      Swal.fire({
+        title: 'Pago realizado con exito',
+        icon: 'success',
+        iconColor: '#60A5FA'
+      })
+
+      
+      
+    } catch (error) {
+      Swal.fire({
+        title: 'No se pudo realizar el pago',
+        icon: 'error',
+      })
+    }finally{ 
+      setCargando(false)
+      setTimeout(() => {
+        window.location.reload()
+      }, 1500);
+      
+    }
+  } 
+
+
+  const obtenerPagos = async() => {
+    setCargando(true)
+    const token = localStorage.getItem('token')
+    if(!token) return
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+
+      }
+    }
+
+    try {
+      const {data} = await ClienteAxios('/admin/historial', config)
+      setListaPagos(data)
+      
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   return (
@@ -466,7 +528,10 @@ const EstudiantesProvider = ({ children }) => {
         getIndex,
         alerta,
         cambiarEstadoRenta,
-        obtenerHabitacionUsuario
+        obtenerHabitacionUsuario,
+        pagoEstudiante,
+        obtenerPagos,
+        listaPagos
       }}
     >
       {children}

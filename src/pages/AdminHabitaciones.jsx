@@ -87,6 +87,20 @@ export default function AdminHabitaciones() {
 
     submitHabitacion(habitacion, formData)
 
+    setModificar(false)
+    setShowCrear(false)
+    setHabitacion({})
+    setDescripcion('')
+    setCapacidad(0)
+    setCiudad('')
+    setDireccion('')
+    setPrecio(0)
+    setEstado('')
+    setPreviewImage('')
+    setPreviewBanio('')
+    setSelectedImage(null)
+    setSelectedBanio(null)
+
   }
 
   useEffect(() => {
@@ -132,7 +146,10 @@ export default function AdminHabitaciones() {
     setDireccion('')
     setPrecio(0)
     setEstado('')
-
+    setPreviewImage('')
+    setPreviewBanio('')
+    setSelectedImage(null)
+    setSelectedBanio(null)
 
   }
 
@@ -146,6 +163,10 @@ export default function AdminHabitaciones() {
     setDireccion('')
     setPrecio(0)
     setEstado('')
+    setPreviewImage('')
+    setPreviewBanio('')
+    setSelectedImage(null)
+    setSelectedBanio(null)
   }
 
 

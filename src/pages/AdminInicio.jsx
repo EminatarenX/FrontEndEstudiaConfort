@@ -53,6 +53,7 @@ function AdminInicio() {
   
   const cambiarPago = () => {
     cambiarEstadoRenta({id: estudianteSeleccionado.solicitud_id,renta: estudianteSeleccionado.renta})
+    setModal(false)
   }
 
   return (

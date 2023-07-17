@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export default function ImagenesHabitaciones({previewBanio, previewImage, handleImageChange, imagenBanio}) {
   return (

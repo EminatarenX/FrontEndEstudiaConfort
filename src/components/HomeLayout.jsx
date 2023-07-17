@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -40,7 +39,7 @@ function HomeLayout() {
           <aside
             className={`xl:hidden  bg-sky-800 fixed h-full z-10 top-0 w-[250px] ${
               aside ? "right-0" : "right-[-300px]"
-            } transition-all text-center flex flex-col gap-10 pt-16`}
+            } transition-all ease duration-500 text-center flex flex-col gap-10 pt-16`}
           >
             <p
               className="absolute right-5 top-4 text-2xl text-white cursor-pointer"

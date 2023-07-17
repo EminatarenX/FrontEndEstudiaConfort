@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ClienteAxios from "../config/ClienteAxios";
 import Swal from "sweetalert2";
 

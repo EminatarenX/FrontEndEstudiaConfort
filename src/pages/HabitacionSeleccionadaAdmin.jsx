@@ -4,7 +4,6 @@ import useEstudiantes from "../hooks/useEstudiantes"
 import CargandoJR from "../components/CargandoJR";
 import Cargando from "../components/Cargando";
 import Slider from "react-slick";
-import Swal from "sweetalert2";
 
 
 export default function HabitacionSeleccionadaAdmin() {
@@ -65,11 +64,7 @@ export default function HabitacionSeleccionadaAdmin() {
                     </>
                 )}
             </div>
-                {/* <div className={`flex justify-center ${cargandoImagenes && 'none'}`}>
-
-                    {/* <button onClick={eliminar} className={`py-4 rounded text-white bg-red-700 hover:bg-red-600 w-96 ${cargandoImagenes && 'none'}`}>Eliminar</button> */}
-
-                {/* </div> */}
+      
 
         </main>
         </>
