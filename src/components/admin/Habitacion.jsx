@@ -32,9 +32,10 @@ export default function Habitacion({
 
 
   }
+
   return (
     <div className="flex flex-col justify-center shadow border rounded-xl cursor-pointer hover:scale-105 transition-all">
-      <img onClick={() => navigate(`/admin/habitaciones/${id}`)} className=" h-64 object-cover rounded-xl" src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${foto}`} alt="" />
+      <img onClick={() => navigate(`/admin/habitaciones/${id}`)} className=" h-64 object-cover rounded-xl" src={`${foto}`} alt="" />
       <article onClick={() => navigate(`/admin/habitaciones/${id}`)} className=" text-black font-semibold text-center p-2">
         <p className="text-xl text-gray-700">{direccion}</p>
         <p className="text-sm text-slate-600">{estado}</p>

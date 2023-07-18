@@ -81,7 +81,7 @@ function AdminInicio() {
             </div>
             <div className="p-2 rounded-xl shadow-lg flex flex-col items-center">
               <p className="text-slate-800 text-sm font-semibold ">Habitacion</p>
-              <img className="w-[200px]" src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${estudianteSeleccionado?.filename}`} alt="imagen-usuarioimg" />
+              <img className="w-[200px]" src={`${estudianteSeleccionado?.filename}`} alt="imagen-usuarioimg" />
             </div>
             {
               estudianteSeleccionado.renta === 'pendiente' && estudianteSeleccionado.estado === 'rentando' ? (

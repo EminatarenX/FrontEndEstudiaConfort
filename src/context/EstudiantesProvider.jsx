@@ -253,7 +253,7 @@ const EstudiantesProvider = ({ children }) => {
           
           const enviarImagen = async () => {
             try {
-              const { data: datos } = await ClienteAxios.post(`/habitacion/imagen/${id}`, formdata, imagenesConfig);
+              const { data: datos } = await ClienteAxios.post(`/habitacion/imagenc/${id}`, formdata, imagenesConfig);
   
               Swal.fire({
                 title: 'Habitacion agregada',
@@ -262,6 +262,11 @@ const EstudiantesProvider = ({ children }) => {
               });
             } catch (error) {
               console.error('Error al enviar la imagen:', error);
+              Swal.fire({
+                title: 'No se pudo agregar la habitacion',
+                icon: 'error',
+                iconColor: '#60A5FA'
+              })
             }finally{
               setCargando(false)
             }

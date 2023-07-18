@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function HabitacionSeleccionada() {
     const { id_habitacion } = useParams()
-    const { obtenerHabitacionSeleccionada, habitacionSeleccionada, enviarSolicitud, datosPersonales } = useEstudiantes()
+    const { obtenerHabitacionSeleccionada, habitacionSeleccionada, enviarSolicitud, datosPersonales,habitacion } = useEstudiantes()
     const [cargandoImagenes, setCargandoImagenes] = useState(true)
     const settings = {
         dots: true,
@@ -57,7 +57,7 @@ export default function HabitacionSeleccionada() {
         }
     }, [habitacionSeleccionada]);
 
-
+    
     return (
         <main className="flex flex-col gap-10 py-5">   
             <h1 className="text-center text-4xl text-gray-600">Conoce tu nueva habitacion</h1>
@@ -67,8 +67,8 @@ export default function HabitacionSeleccionada() {
                 ) : (
                     <>
                         <Slider className=" w-full xl:w-1/2" settings={settings}>
-                            <img className="max-h-96 object-cover" src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${habitacionSeleccionada?.imagenes[0]?.filename}`} alt={habitacionSeleccionada?.imagenes[0]?.filename} />
-                            <img className="max-h-96 object-cover" src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${habitacionSeleccionada?.imagenes[1]?.filename}`} alt={habitacionSeleccionada?.imagenes[1]?.filename} />
+                            <img className="max-h-96 object-cover" src={`${habitacionSeleccionada?.imagenes[0]?.pathname}`} alt={habitacionSeleccionada?.imagenes[0]?.filename} />
+                            <img className="max-h-96 object-cover" src={`${habitacionSeleccionada?.imagenes[1]?.pathname}`} alt={habitacionSeleccionada?.imagenes[1]?.filename} />
                         </Slider>
 
 

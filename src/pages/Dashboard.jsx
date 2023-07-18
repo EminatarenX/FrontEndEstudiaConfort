@@ -44,7 +44,7 @@ function Dashboard() {
     filtrarHabitaciones()
   }, [filtroEstado]);
 
-  console.log(habitaciones)
+
 
   return (
     <main className="">
@@ -59,7 +59,7 @@ function Dashboard() {
           <div className="flex xl:flex-row  flex-col-reverse p-5 xl:p-20 justify-around gap-10 xl:gap-0 bg-gradient-to-r from-slate-800 to-slate-600">
             <img
               className="w-full xl:w-[450px] animate-entrada object-cover"
-              src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${habitacion?.imagen1}`}
+              src={`${habitacion?.imagen1}`}
               alt="imagen-usuario-habitacion"
             />
             <div className="flex flex-col gap-4 items-center xl:items-end text-white animate-entrada mt-10">

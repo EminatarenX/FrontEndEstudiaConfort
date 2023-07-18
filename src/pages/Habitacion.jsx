@@ -33,13 +33,13 @@ export default function Habitacion() {
       <Slider className="xl:w-1/2 " {...settings}>
         <img
           className=" h-96 object-cover"
-          src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${habitacion?.imagen1}`}
+          src={`${habitacion?.imagen1}`}
           alt="imagenes"
         />
     
         <img
           className=" h-96 object-cover"
-          src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${habitacion?.imagen2}`}
+          src={`${habitacion?.imagen2}`}
           alt="imagenes-2"
         />
     

@@ -35,7 +35,6 @@ export default function HabitacionSeleccionadaAdmin() {
         }
     }, [habitacionSeleccionada]);
 
-
     return (
         <>
         {cargando && <Cargando />}
@@ -47,8 +46,8 @@ export default function HabitacionSeleccionadaAdmin() {
                 ) : (
                     <>
                         <Slider className="w-[350px] lg:w-1/2" settings={settings}>
-                            <img className="max-h-96 object-cover" src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${habitacionSeleccionada?.imagenes[0]?.filename}`} alt={habitacionSeleccionada?.imagenes[0]?.filename} />
-                            <img className="max-h-96 object-cover" src={`${import.meta.env.VITE_BACKEND_URL}/api/img/${habitacionSeleccionada?.imagenes[1]?.filename}`} alt={habitacionSeleccionada?.imagenes[1]?.filename} />
+                            <img className="max-h-96 object-cover" src={`${habitacionSeleccionada?.imagenes[0]?.pathname}`} alt={habitacionSeleccionada?.imagenes[0]?.filename} />
+                            <img className="max-h-96 object-cover" src={`${habitacionSeleccionada?.imagenes[1]?.pathname}`} alt={habitacionSeleccionada?.imagenes[1]?.filename} />
                         </Slider>
 
 
