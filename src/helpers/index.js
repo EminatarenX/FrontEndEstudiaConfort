@@ -29,3 +29,26 @@ export function listaMeses() {
     
     return meses
 }
+
+export function obtenerUniversidades () {
+  const universidades = [
+    "Asociación Culinaria de México, A.C., Capítulo Suroeste",
+    "Colegio Euro-mexicano de Chef y Sommelier",
+    "Instituto Amado Nervo",
+    "Instituto de Estudios Universitarios",
+    "Instituto Tecnológico de Tuxtla Gutiérrez",
+    "Maniquie",
+    "Universidad Autónoma de Chiapas (UNACH)",
+    "Universidad Autónoma de Guadalajara",
+    "Universidad de Ciencias y Artes de Chiapas (UNICACH)",
+    "Universidad del Sur",
+    "Universidad del Valle de México (UVM)",
+    "Universidad Pablo Guardado Chávez",
+    "Universidad Pedagógica Nacional (UPN)",
+    "Universidad Politécnica de Chiapas",
+    "Universidad Salazar"
+  ];
+  
+
+  return universidades
+}

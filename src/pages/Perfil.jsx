@@ -4,6 +4,7 @@ import {  useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useEstudiantes from "../hooks/useEstudiantes";
 
+import { obtenerUniversidades } from "../helpers";
 
 export default function Perfil() {
   const {datosPersonales, actualizarDatosPersonales} = useEstudiantes()
@@ -15,6 +16,8 @@ export default function Perfil() {
   const [tel_tutor, setTelTutor] = useState('')
   const [institucion, setInstitucion] = useState('')
   const [sexo, setSexo] = useState('')
+
+  const [universidades, setUniversidades] = useState([])
 
   const actualizarDatos = async(e) => {
     e.preventDefault()
@@ -79,6 +82,7 @@ export default function Perfil() {
   
     }
     completarDatosPersonales()
+    setUniversidades(obtenerUniversidades())
   },[])
 
 
@@ -145,15 +149,34 @@ export default function Perfil() {
           />
         </div>
         <div className="flex flex-col">
-          <label className="text-blue-950 font-semibold" htmlFor="nombre_tutor">Institución Educativa</label>
-          <input
+          <label className="text-blue-950 font-semibold" htmlFor="institucion">Institución Educativa</label>
+          {/* <input
           defaultValue={institucion}
             type="text"
             {...Object.keys(datosPersonales).length !== 0 && {disabled:true}}
             placeholder="Universidad Politécnica De Chiapas"
             className="p-3 rounded  border focus:outline-slate-300 text-slate-700"
             onChange={e=> setInstitucion(e.target.value)}
-          />
+          /> */}
+
+          <select name="institucion" id="institucion"
+            className="border p-3 rounded text-center"
+
+            defaultValue={institucion}
+            type="text"
+            {...Object.keys(datosPersonales).length !== 0 && {disabled:true}}
+            placeholder="Universidad Politécnica De Chiapas"
+            onChange={e=> setInstitucion(e.target.value)}
+          >
+
+            {universidades.map((universidad, index) => (
+
+              <option key={index} value={universidad}>{universidad}</option>
+            ))}
+
+
+          </select>
+
         </div>
 
         <div className="flex flex-col lg:col-span-2">
