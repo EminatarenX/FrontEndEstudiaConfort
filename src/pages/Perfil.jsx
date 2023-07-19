@@ -46,14 +46,6 @@ export default function Perfil() {
       return
     }
 
-    if(institucion.split(' ').length < 3){
-      Swal.fire({
-        title: 'Escribe el nombre completo de la institución',
-        text: 'Procura no usar abreviaturas',
-        icon: 'warning'
-      })
-      return
-    }
 
 
     actualizarDatosPersonales({telefono, nombre_tutor,tel_tutor,institucion, sexo})
@@ -150,14 +142,7 @@ export default function Perfil() {
         </div>
         <div className="flex flex-col">
           <label className="text-blue-950 font-semibold" htmlFor="institucion">Institución Educativa</label>
-          {/* <input
-          defaultValue={institucion}
-            type="text"
-            {...Object.keys(datosPersonales).length !== 0 && {disabled:true}}
-            placeholder="Universidad Politécnica De Chiapas"
-            className="p-3 rounded  border focus:outline-slate-300 text-slate-700"
-            onChange={e=> setInstitucion(e.target.value)}
-          /> */}
+
 
           <select name="institucion" id="institucion"
             className="border p-3 rounded text-center"
@@ -168,6 +153,7 @@ export default function Perfil() {
             placeholder="Universidad Politécnica De Chiapas"
             onChange={e=> setInstitucion(e.target.value)}
           >
+            <option value="">-- Seleccione una opción --</option>
 
             {universidades.map((universidad, index) => (
 
