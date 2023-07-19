@@ -20,7 +20,7 @@ function UserLayout() {
   return (
     <>  
       <aside className={`lg:hidden fixed flex flex-col ${aside? 'right-0':' -right-[400px]'} bg-slate-950 px-32 gap-10 h-full pt-20 transition-all duration-700 ease  z-10`}>
-        <h1 className="text-white text-xl">Estudia<span className="text-sky-400">Confort</span></h1>
+        <Link className="text-white text-xl">Estudia<span className="text-sky-400">Confort</span></Link>
         <Link onClick={()=> setAside(false)} to='/dashboard' className="text-white text-xl">Habitaciones</Link>
         <Link onClick={()=> setAside(false)} to='/dashboard/perfil' className="text-white text-xl">Perfil</Link>
         <button onClick={cerrarSesion} className="text-white text-xl">Cerrar Sesión</button>
