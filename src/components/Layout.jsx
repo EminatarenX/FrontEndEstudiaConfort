@@ -24,7 +24,7 @@ function AdminLayout() {
         <Link onClick={()=> setAside(false)} to='/admin' className='text-2xl text-white hover:bg-sky-800 py-2 flex justify-center w-40 rounded transition-colors'>Panel</Link>
         <Link onClick={()=> setAside(false)} to='habitaciones' className='text-2xl text-white hover:bg-sky-800 py-2 flex justify-center w-40 rounded transition-colors'>Habitaciones</Link>
         <Link onClick={()=> setAside(false)} to='pagos' className='text-2xl text-white hover:bg-sky-800 py-2 flex justify-center w-40 rounded transition-colors'>Pagos</Link>
-        <button onClick={cerrarSesion} className='text-2xl text-white  hover:bg-sky-800 py-2 flex justify-center w-40 rounded transition-colors'>Cerrar sesion</button>
+        <button onClick={cerrarSesion} className='text-2xl text-white  hover:bg-sky-800 py-2 flex justify-center w-40 rounded transition-colors'>Cerrar sesión</button>
       </aside>
       <header className={` ${cargando && 'xl:sticky xl:top-0'} bg-white flex p-5 border border-b-slate-300 justify-between items-center w-full`}>
           <h1 className='text-3xl xl:text-4xl cursor-pointer'>Estudia<span className='text-blue-600'>Confort</span><span className='text-xs'>Admin</span></h1>

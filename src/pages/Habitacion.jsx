@@ -7,7 +7,7 @@ import useEstudiantes from "../hooks/useEstudiantes";
 export default function Habitacion() {
   const [modal, setModal] = useState(false);
   const {habitacion} = useEstudiantes()
-  console.log(habitacion)
+
   const settings = {
     dots: true,
     infinite: true,
@@ -45,7 +45,7 @@ export default function Habitacion() {
     
       </Slider>
       <div className="flex flex-col gap-2 text-white ">
-        <h1 className="font-semibold text-4xl">Tu Habitacion</h1>
+        <h1 className="font-semibold text-4xl">Tu Habitación</h1>
         <div className="flex flex-col gap-2">
           <p className="text-2xl">{habitacion.direccion + ", "+ habitacion.ciudad}</p>
 

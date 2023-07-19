@@ -40,7 +40,7 @@ const SignInStudent = () => {
 
     if(password.length < 8){
       setError({
-          msj: 'La contraseña tiene que tener 8 caracteres como minimo',
+          msj: 'La contraseña tiene que tener 8 caracteres como mínimo',
           error: true
       })
       return
@@ -78,7 +78,7 @@ const SignInStudent = () => {
 
     } catch (error) {
       setError({
-        msj: "Error de Conexion",
+        msj: "Error de Conexión",
         error: true
       })
     }
@@ -98,7 +98,7 @@ const SignInStudent = () => {
         <input className='border border-gray-300 p-3 text-xs rounded transition-all focus:outline-sky-500 active:scale-105' id='nombre' type="text" placeholder='Nombre completo'
           onChange={e=> setNombre(e.target.value)}
         />
-        <label className='text-xs capitalize text-white' htmlFor="correo">Correo electronico</label>
+        <label className='text-xs capitalize text-white' htmlFor="correo">Correo electrónico</label>
         <input  className='border border-gray-300 p-3 text-xs rounded transition-all focus:outline-sky-500 active:scale-105' type="email" id='correo' placeholder='Correo'
           onChange={e=> setCorreo(e.target.value)}
         />
@@ -117,7 +117,7 @@ const SignInStudent = () => {
           <h2 className='text-white text-2xl mb-5'>Eres administrador de un negocio?</h2>
           <Link
           className='border rounded w-full py-4 text-center text-white font-bold transition-all hover:bg-sky-500 hover:scale-105 hover:border-none hover:shadow-xl '
-          to={'/registrar/admin'}>Registrate Aqui!</Link>
+          to={'/registrar/admin'}>Regístrate Aquí!</Link>
       </div>
 
     </main>

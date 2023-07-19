@@ -29,7 +29,7 @@ export default function Perfil() {
 
     if(telefono.length < 10 || tel_tutor.length < 10){
       Swal.fire({
-        title: 'El numero de telefono tiene que ser de 10 digitos',
+        title: 'El numero de teléfono tiene que ser de 10 dígitos',
         icon: 'warning'
       })
       return
@@ -45,7 +45,7 @@ export default function Perfil() {
 
     if(institucion.split(' ').length < 3){
       Swal.fire({
-        title: 'Escribe el nombre completo de la institucion',
+        title: 'Escribe el nombre completo de la institución',
         text: 'Procura no usar abreviaturas',
         icon: 'warning'
       })
@@ -92,7 +92,7 @@ export default function Perfil() {
     <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
   </svg>
       <h1 className="text-4xl  text-blue-850">Perfil</h1>
-      <h2 className="text-gray-400 text-xl">Al completar la informacion de tu perfil podras solicitar informes con los administradores!</h2>
+      <h2 className="text-gray-400 text-xl">Al completar la información de tu perfil podrás solicitar informes con los administradores!</h2>
       </div>
 
       <form 
@@ -110,7 +110,7 @@ export default function Perfil() {
           />
         </div>
         <div className="flex flex-col">
-          <label className="text-blue-950 font-semibold" htmlFor="telefono">Telefono Personal</label>
+          <label className="text-blue-950 font-semibold" htmlFor="telefono">Teléfono Personal</label>
           <input
             defaultValue={telefono}
             type="number"
@@ -133,7 +133,7 @@ export default function Perfil() {
           />
         </div>
         <div className="flex flex-col">
-          <label className="text-blue-950 font-semibold" htmlFor="telefono">Telefono de Tutor</label>
+          <label className="text-blue-950 font-semibold" htmlFor="telefono">Teléfono de Tutor</label>
           <input
           defaultValue={tel_tutor}
             type="number"
@@ -145,12 +145,12 @@ export default function Perfil() {
           />
         </div>
         <div className="flex flex-col">
-          <label className="text-blue-950 font-semibold" htmlFor="nombre_tutor">Institucion Educativa</label>
+          <label className="text-blue-950 font-semibold" htmlFor="nombre_tutor">Institución Educativa</label>
           <input
           defaultValue={institucion}
             type="text"
             {...Object.keys(datosPersonales).length !== 0 && {disabled:true}}
-            placeholder="Universidad Politecnica De Chiapas"
+            placeholder="Universidad Politécnica De Chiapas"
             className="p-3 rounded  border focus:outline-slate-300 text-slate-700"
             onChange={e=> setInstitucion(e.target.value)}
           />
@@ -161,7 +161,7 @@ export default function Perfil() {
               Genero
             </label>
             <select onChange={e => setSexo(e.target.value)} value={sexo} className="border p-3 rounded text-center" name="sexo" id="sexo">
-              <option  value="">-- Seleccione una opcion --</option>
+              <option  value="">-- Seleccione una opción --</option>
               <option  value="hombre">Hombre</option>
               <option  value="mujer">Mujer</option>
             </select>

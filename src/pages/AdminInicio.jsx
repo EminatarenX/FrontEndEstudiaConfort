@@ -69,18 +69,18 @@ function AdminInicio() {
             <div className=" p-2 rounded-xl shadow-lg w-[380px]">
 
             <p className="text-slate-800 text-sm font-semibold">Nombre: <span className="text-gray-600 font-normal"> {estudianteSeleccionado.nombre}</span> </p>
-            <p className="text-slate-800 text-sm font-semibold">Institucion: <span className="text-gray-600 font-normal"> {estudianteSeleccionado.institucion}</span> </p>
-            <p className="text-slate-800 text-sm font-semibold">Telefono: <span className="text-gray-600 font-normal"> {estudianteSeleccionado.telefono}</span> </p>
+            <p className="text-slate-800 text-sm font-semibold">Institución: <span className="text-gray-600 font-normal"> {estudianteSeleccionado.institucion}</span> </p>
+            <p className="text-slate-800 text-sm font-semibold">Teléfono: <span className="text-gray-600 font-normal"> {estudianteSeleccionado.telefono}</span> </p>
             <p className="text-slate-800 text-sm font-semibold">Solicitud: <span className="text-gray-600 font-normal"> {estudianteSeleccionado.estado}</span> </p>
             </div>
             <h1 className="text-2xl text-center my-2 text-gray-800 ">Datos del Tutor</h1>
             <div className=" p-2 rounded-xl shadow-lg">
 
             <p className="text-slate-800 text-sm font-semibold">Nombre: <span className="text-gray-600 font-normal">{estudianteSeleccionado.nombre_tutor}</span>  </p>
-            <p className="text-slate-800 text-sm font-semibold">Telefono: <span className="text-gray-600 font-normal">{estudianteSeleccionado.tel_tutor}</span></p>
+            <p className="text-slate-800 text-sm font-semibold">Teléfono: <span className="text-gray-600 font-normal">{estudianteSeleccionado.tel_tutor}</span></p>
             </div>
             <div className="p-2 rounded-xl shadow-lg flex flex-col items-center">
-              <p className="text-slate-800 text-sm font-semibold ">Habitacion</p>
+              <p className="text-slate-800 text-sm font-semibold ">Habitación</p>
               <img className="w-[200px]" src={`${estudianteSeleccionado?.filename}`} alt="imagen-usuarioimg" />
             </div>
             {
@@ -223,10 +223,10 @@ function AdminInicio() {
           </section>
 
         </article>
-        <p className="text-slate-800 text-4xl text-center ">Buscar Estudiates</p>
+        <p className="text-slate-800 text-4xl text-center ">Buscar Estudiantes</p>
         <section className="p-5 flex flex-col xl:flex-row justify-center items-center">
           <div className="bg-white p-2 flex gap-3 items-center rounded border shadow-xl">
-            <label htmlFor="nombre">Ingresa la institucion del Estudiate</label>
+            <label htmlFor="nombre">Ingresa la institución del Estudiante</label>
             <input
               className="p-2 focus:outline-slate-200"
               type="text" name="nombre" id="nombre" placeholder="Nombre del estudiante" 
@@ -238,7 +238,7 @@ function AdminInicio() {
         <div className={`grid ${buscar.length === 0? '': 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-gray-100'} `}
 
         >
-        { buscar.length === 0 ? <h1 className="text-center text-gray-500">Los estudiantes buscados apareceran aqui</h1>:
+        { buscar.length === 0 ? <h1 className="text-center text-gray-500">Los estudiantes buscados aparecerán aquí</h1>:
               estudiantesBuscados.map(estudiante => {
                 if(estudiante.estado === 'rentando') return(
   

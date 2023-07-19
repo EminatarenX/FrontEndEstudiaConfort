@@ -13,7 +13,7 @@ export default function Payment({ monto, id_habitacion, id_creador }) {
     const pagar = async () => {
         if(!nombre){
             Swal.fire({
-                title: 'Debes introducir el nombre del propietario de la targeta',
+                title: 'Debes introducir el nombre del propietario de la tarjeta',
                 icon: 'warning',
                 iconColor: '#1088ca',
             })
@@ -27,7 +27,7 @@ export default function Payment({ monto, id_habitacion, id_creador }) {
         })
 
         if (error) {
-            alert('Ocurrio un error')
+            alert('Ocurrió un error')
             return
         }
 
@@ -45,8 +45,8 @@ export default function Payment({ monto, id_habitacion, id_creador }) {
          
             <div className="bg-slate-100 py-5">
                 <div className="flex flex-col items-center gap-2 mx-20">
-                    <h2 className=" text-2xl text-gray-600">Pagar habitacion</h2>
-                    <p className="text-md text-gray-600">Nombre del propietario de la targeta</p>
+                    <h2 className=" text-2xl text-gray-600">Pagar habitación</h2>
+                    <p className="text-md text-gray-600">Nombre del propietario de la tarjeta</p>
                     <input 
                         onChange={(e) => setNombre(e.target.value)}
                         className="text-center focus:outline-white w-full py-2 shadow text-sm" type="text" placeholder="Nombre completo" />

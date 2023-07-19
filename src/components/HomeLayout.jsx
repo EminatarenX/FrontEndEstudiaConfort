@@ -22,7 +22,7 @@ function HomeLayout() {
             
             className="hidden xl:block text-white cursor-pointer border  py-4 w-[132px] text-center rounded hover:scale-105 hover:bg-sky-500 transition-all"
           >
-            iniciar sesion
+            Iniciar sesión
           </Link>
           <Link
             to="/registrar"
@@ -52,7 +52,7 @@ function HomeLayout() {
               onClick={() => setAside(false)}
               className="text-white text-2xl"
             >
-              Iniciar sesion
+              Iniciar sesión
             </Link>
             <Link
               to={"/registrar"}

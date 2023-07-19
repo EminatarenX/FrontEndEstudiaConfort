@@ -65,6 +65,11 @@ export default function AdminHabitaciones() {
       alerta('Los campos capacidad y precio deben ser numericos', 'error')
       return
     }
+
+    if(precio >= 10000) {
+      alerta('El precio no puede ser mayor a 10, 000', 'error')
+      return
+    }
     let capacidadParse = Number(capacidad)
     let precioParse = Number(precio)
     if ([previewImage, previewBanio, descripcion, capacidad, ciudad, direccion, precio, estado].includes('')) {
@@ -112,13 +117,14 @@ export default function AdminHabitaciones() {
   const alerta = (titulo, icono) => {
     Swal.fire({
       title: titulo,
-      icon: icono
+      icon: icono,
+      iconColor: '#60A5FA',
     })
   }
 
   const modify = () => {
     if (!Number(capacidad) || !Number(precio)) {
-      alerta('Los campos capacidad y precio deben ser numericos', 'error')
+      alerta('Los campos capacidad y precio deben ser numéricos', 'error')
       return
     }
     let capacidadParse = Number(capacidad)
@@ -176,7 +182,7 @@ export default function AdminHabitaciones() {
       <main className={`p-2 flex flex-col gap-5 `}>
         <h1 className="text-center text-4xl mt-5">Habitaciones</h1>
         <p className="text-md text-center text-slate-600 xl:text-2xl ">
-          Agrega, modifica y elimina las habitaciones que los usuarios podran ver en su inicio
+          Agrega, modifica y elimina las habitaciones que los usuarios podrán ver en su inicio
         </p>
         <div className="flex justify-center">
           {
@@ -186,7 +192,7 @@ export default function AdminHabitaciones() {
           </button>
           ):
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setShowCrear(!showCrear)}>
-            {showCrear ? 'Ocultar formulario' : 'Agregar habitacion'}
+            {showCrear ? 'Ocultar formulario' : 'Agregar habitación'}
           </button>
           
           }
@@ -196,7 +202,7 @@ export default function AdminHabitaciones() {
             onSubmit={agregarHabitacion}
             className="flex gap-10 flex-col xl:flex-row justify-around ">
             <div className="flex flex-col">
-              <label>Descripcion</label>
+              <label>Descripción</label>
               <textarea
                 value={descripcion}
                 onChange={e => setDescripcion(e.target.value)}
@@ -210,7 +216,7 @@ export default function AdminHabitaciones() {
                 name="capacidad"
                 id="capacidad"
                 onChange={e => setCapacidad(e.target.value)}>
-                <option value="">-- Selecione una opcion --</option>
+                <option value="">-- Seleccione una opción --</option>
                 <option className="text-center" value="1">1</option>
                 <option className="text-center" value="2">2</option>
                 <option className="text-center" value="3">3</option>
@@ -223,7 +229,7 @@ export default function AdminHabitaciones() {
                 className="rounded p-1 focus:outline-slate-300"
                 onChange={e => setCiudad(e.target.value)}
               />
-              <label>Direccion</label>
+              <label>Dirección</label>
               <input
                 value={direccion}
                 onChange={e => setDireccion(e.target.value)}
@@ -244,7 +250,7 @@ export default function AdminHabitaciones() {
                 value={estado}
               >
 
-                <option value="">-- Selecione una opcion --</option>
+                <option value="">-- Seleccione una opción --</option>
                 <option className="text-center" value="disponible">Disponible</option>
                 <option className="text-center" value="ocupado">Ocupado</option>
               </select>
@@ -259,11 +265,11 @@ export default function AdminHabitaciones() {
               {modificar ? (
                   <button onClick={modify} className="w-full  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                  >
-                  Modificar habitacion
+                  Modificar habitación
                  </button>
               ): (
               <input
-                type="submit" value='Agregar habitacion'
+                type="submit" value='Agregar habitación'
                 className="w-full  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               />
               
@@ -276,7 +282,7 @@ export default function AdminHabitaciones() {
             <h1 className="text-slate-800 text-2xl text-center">No hay habitaciones registradas</h1>
             : (
               habitacionesAdmin.map((room) => (
-                <>
+                
                   <Habitacion
                     key={room.id}
                     foto={room.imagen1}
@@ -297,7 +303,7 @@ export default function AdminHabitaciones() {
 
                     />
                       
-                </>
+                
                 
               ))
 

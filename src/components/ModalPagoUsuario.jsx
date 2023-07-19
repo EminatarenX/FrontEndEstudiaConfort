@@ -18,7 +18,7 @@ export default function ModalPagoUsuario({ setModal, monto, id_habitacion, id_cr
       {cargando && <Cargando />}
     <button
       className="absolute top-5 right-5 text-white bg-slate-900 px-10 py-2 rounded"
-    onClick={() => setModal(false)}>cerrar</button>
+    onClick={() => setModal(false)}>Cerrar</button>
     <div className="w-[1000px]">
         <Elements stripe={stripePromise}>
         <Payment

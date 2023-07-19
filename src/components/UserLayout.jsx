@@ -23,7 +23,7 @@ function UserLayout() {
         <h1 className="text-white text-xl">Estudia<span className="text-sky-400">Confort</span></h1>
         <Link onClick={()=> setAside(false)} to='/dashboard' className="text-white text-xl">Habitaciones</Link>
         <Link onClick={()=> setAside(false)} to='/dashboard/perfil' className="text-white text-xl">Perfil</Link>
-        <button onClick={cerrarSesion} className="text-white text-xl">Cerrar Sesion</button>
+        <button onClick={cerrarSesion} className="text-white text-xl">Cerrar Sesión</button>
       </aside>
       <header className=" flex justify-between px-8 h-[100px] items-center bg-gradient-to-r from-slate-950 to-slate-800">
       <h1 className="text-4xl text-white  animate-entrada  ">
@@ -32,7 +32,7 @@ function UserLayout() {
         <nav className="flex gap-10 animate-entrada">
           <Link to='/dashboard' className="hidden lg:flex text-md text-white border border-sky-200 hover:bg-slate-600 transition-all hover:-translate-y-1 h-12 w-[150px] justify-center items-center rounded font-semibold">Habitaciones</Link>
           <Link to='/dashboard/perfil' className="hidden lg:flex text-md text-white border border-sky-200 hover:bg-slate-600 transition-all hover:-translate-y-1 h-12 w-[150px] justify-center items-center rounded font-semibold">Perfil</Link>
-          <button onClick={cerrarSesion} className="hidden lg:flex text-md text-white border border-sky-200 hover:bg-slate-600 transition-all hover:-translate-y-1 h-12 w-[150px] justify-center items-center rounded font-semibold">Cerrar Sesion</button>
+          <button onClick={cerrarSesion} className="hidden lg:flex text-md text-white border border-sky-200 hover:bg-slate-600 transition-all hover:-translate-y-1 h-12 w-[150px] justify-center items-center rounded font-semibold">Cerrar Sesión</button>
           <button className="lg:hidden z-10 text-3xl text-white" onClick={()=> setAside(!aside)}>&#8801;</button>
         </nav>
       </header>

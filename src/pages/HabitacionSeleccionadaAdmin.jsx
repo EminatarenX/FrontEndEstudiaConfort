@@ -20,7 +20,7 @@ export default function HabitacionSeleccionadaAdmin() {
     }
 
     const eliminar = () => {
-        eliminarHabitacion(habitacionSeleccionada.id)
+        eliminarHabitacion(habitacionSeleccionada.id,{public_id: habitacionSeleccionada.imagenes[0].pathname, public_id2: habitacionSeleccionada.imagenes[1].pathname})
     }
 
     useEffect(() => {
@@ -39,7 +39,7 @@ export default function HabitacionSeleccionadaAdmin() {
         <>
         {cargando && <Cargando />}
         <main className="flex flex-col gap-10 py-5">
-            <h1 className="text-center text-4xl text-gray-600">Previsualiza la habitacion</h1>
+            <h1 className="text-center text-4xl text-gray-600">Visualiza la habitación</h1>
             <div className="flex items-center justify-around flex-col lg:flex-row">
                 {cargandoImagenes ? (
                     <CargandoJR />
@@ -60,10 +60,19 @@ export default function HabitacionSeleccionadaAdmin() {
 
                         </div>
 
+                        
+
                     </>
                 )}
             </div>
-      
+            <div className="flex justify-center">
+
+                    <button 
+                        onClick={eliminar}
+                        className="py-3 bg-red-600 rounded text-white font-semibold w-[200px]">
+                        Eliminar habitación
+                    </button>
+            </div>
 
         </main>
         </>

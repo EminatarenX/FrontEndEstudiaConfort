@@ -1,10 +1,13 @@
 import { createContext, useState } from "react";
 import ClienteAxios from "../config/ClienteAxios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const EstudiantesContext = createContext();
 
 const EstudiantesProvider = ({ children }) => {
+
+  const navigate = useNavigate()
 
   const [habitacion, setHabitacion] = useState({})
   const [habitaciones, setHabitaciones] = useState([])
@@ -41,7 +44,7 @@ const EstudiantesProvider = ({ children }) => {
      
       
     } catch (error) {
-      setAlerta('No se pudo actualizar la informacion')
+      setAlerta('No se pudo actualizar la información')
     } finally{ setCargando(false)}
 
   }
@@ -65,7 +68,7 @@ const EstudiantesProvider = ({ children }) => {
    
     setEstudiantes(data)
   } catch (error) {
-    setAlerta('No se pudo obtener la informacion de los estudiantes')
+    setAlerta('No se pudo obtener la información de los estudiantes')
   } finally{ setCargando(false)}
 
 }
@@ -89,7 +92,7 @@ const EstudiantesProvider = ({ children }) => {
         setDatosPersonales(data)
         
       } catch (error) {
-        setAlerta( 'No se pudo obtener la informacion del usuario')
+        setAlerta( 'No se pudo obtener la información del usuario')
       } finally{ setCargando(false)}
       
     }
@@ -152,7 +155,7 @@ const EstudiantesProvider = ({ children }) => {
       } catch (error) {
    
         Swal.fire({
-          title: "No se poudo actualizar el estado",
+          title: "No se pudo actualizar el estado",
           icon: 'error',
         })
       } finally{ setCargando(false)}
@@ -173,7 +176,7 @@ const EstudiantesProvider = ({ children }) => {
 
         setHabitaciones(data)
       } catch (error) {
-        setAlerta('No se pudo obtener la informacion de la habitacion')
+        setAlerta('No se pudo obtener la información de la habitación')
       } finally{ setCargando(false)}
 
     }
@@ -194,7 +197,7 @@ const EstudiantesProvider = ({ children }) => {
         setHabitacionSeleccionada(data.habitacion)
 
       } catch (error) {
-        setAlerta('No se pudo obtener la informacion de la habitacion')
+        setAlerta('No se pudo obtener la información de la habitacion')
  
       } finally{ setCargando(false)}
     }
@@ -255,25 +258,25 @@ const EstudiantesProvider = ({ children }) => {
             try {
               const { data: datos } = await ClienteAxios.post(`/habitacion/imagenc/${id}`, formdata, imagenesConfig);
   
-              Swal.fire({
-                title: 'Habitacion agregada',
-                icon: 'success',
-                iconColor: '#60A5FA'
-              });
+       
             } catch (error) {
-              console.error('Error al enviar la imagen:', error);
+              
               Swal.fire({
                 title: 'No se pudo agregar la habitacion',
                 icon: 'error',
                 iconColor: '#60A5FA'
               })
-            }finally{
-              setCargando(false)
             }
           };
           
           enviarImagen();
         }, 3000);
+
+        Swal.fire({
+          title: 'Habitacion agregada',
+          icon: 'success',
+          iconColor: '#60A5FA'
+        });
       } catch (error) {
 
         Swal.fire({
@@ -299,7 +302,7 @@ const EstudiantesProvider = ({ children }) => {
      
         setHabitacionesAdmin(data)
       } catch (error) {
-        setAlerta('No se pudo obtener la informacion de la habitacion')
+        setAlerta('No se pudo obtener la información de la habitacion')
       } finally{ setCargando(false)}
     }
     async function pagar(){
@@ -322,7 +325,7 @@ const EstudiantesProvider = ({ children }) => {
               descripcion: 'pago de servicio mensual',
               fecha: datetimeProximoMinuto,
               }, config)
-          alert('Pago realizado con exito')
+          alert('Pago realizado con éxito')
       } catch (error) {
           console.log(error)
           alert('No se pudo realizar el pago')
@@ -343,11 +346,30 @@ const EstudiantesProvider = ({ children }) => {
         Authorization: `Bearer ${token}`
       }
     }
+
+    
+    
     try {
-      const {data} = await ClienteAxios.delete(`/habitacion/${id}`,body, config)
-      console.log(data)
+      const {data} = await ClienteAxios.post(`/habitacion/${id}`,body, config)
+      Swal.fire({
+        title: 'Habitacion eliminada satisfactoriamente',
+        icon: 'success',
+        showConfirmButton: false,
+        iconColor: '#60A5FA'
+
+      })
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000);
     } catch (error) {
-      console.log(error)
+      Swal.fire(
+        {
+          title: 'No se pudo eliminar la habitacion',
+          icon: 'error',
+          showConfirmButton: false,
+          iconColor: '#60A5FA'
+        }
+      )
     }finally{ setCargando(false)}
 
 
@@ -437,7 +459,7 @@ const EstudiantesProvider = ({ children }) => {
       setHabitacion(data)
       
     } catch (error) {
-      setAlerta('No se pudo obtener la informacion de la habitacion')
+      setAlerta('No se pudo obtener la información de la habitacion')
     }finally{ setCargando(false)}
   }
 
@@ -459,23 +481,24 @@ const EstudiantesProvider = ({ children }) => {
       await ClienteAxios.post(`/usuario/pagar/${id_habitacion}`, body, config)
       
       Swal.fire({
-        title: 'Pago realizado con exito',
+        title: 'Pago realizado con éxito',
         icon: 'success',
         iconColor: '#60A5FA'
       })
 
-      
+      setTimeout(() => {
+        window.location.reload()
+      }, 1500);
       
     } catch (error) {
       Swal.fire({
         title: 'No se pudo realizar el pago',
         icon: 'error',
       })
+      console.log(error)
     }finally{ 
       setCargando(false)
-      setTimeout(() => {
-        window.location.reload()
-      }, 1500);
+      
       
     }
   } 
@@ -499,7 +522,11 @@ const EstudiantesProvider = ({ children }) => {
       setListaPagos(data)
       
     } catch (error) {
-      console.log(error)
+      Swal.fire({
+        title: 'No se pudo obtener el historial de pagos',
+        icon: 'error',
+        iconColor: '#60A5FA'
+      })
     }
 
   }

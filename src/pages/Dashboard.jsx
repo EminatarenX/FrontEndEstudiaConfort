@@ -52,7 +52,7 @@ function Dashboard() {
         {Object.keys(habitacion).length === 0 ? (
           <div className="flex xl:flex-row justify-center px-1 py-10 xl:p-20 gap-10 xl:gap-52 bg-gradient-to-r from-slate-950 to-slate-800">
             <h1 className="text-center font-semibold text-4xl text-white">
-              No tienes una habitacion en renta
+              No tienes una habitación en renta
             </h1>
           </div>
         ) : (
@@ -63,7 +63,7 @@ function Dashboard() {
               alt="imagen-usuario-habitacion"
             />
             <div className="flex flex-col gap-4 items-center xl:items-end text-white animate-entrada mt-10">
-              <h1 className="font-semibold text-6xl xl:text-4xl text-center ">Tu Habitacion</h1>
+              <h1 className="font-semibold text-6xl xl:text-4xl text-center ">Tu habitación</h1>
 
               <p className="text-2xl xl:text-lg text-center xl:text-end">
                 {habitacion.direccion}
@@ -78,7 +78,7 @@ function Dashboard() {
           </div>
         )}
       </div>
-      <div className="flex justify-around my-10 items-center">
+      <div className="flex flex-col xl:flex-row gap-5 justify-around my-10 items-center">
         <h1 className="animate-entrada text-4xl  text-sky-900 font-semibold">
           Habitaciones
         </h1>
@@ -96,7 +96,7 @@ function Dashboard() {
         <input
         className="shadow-xl rounded-xl p-3 w-[300px] focus:outline-slate-400"
         onChange={e=> setBuscar(e.target.value)}
-        type="text" placeholder="Busqueda por direccion"
+        type="text" placeholder="Búsqueda por dirección"
         value={buscar}
         />
         

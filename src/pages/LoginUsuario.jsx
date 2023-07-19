@@ -18,7 +18,7 @@ function LoginUsuario() {
 
     if ([correo, password].includes("")) {
         setError({
-          msj: "FALTAN CAMPOS POR LLENAR",
+          msj: "Faltan campos por llenar",
           error: true,
         });
       return;
@@ -44,7 +44,7 @@ function LoginUsuario() {
     } catch (error) {
       if(error.message == 'Network Error'){
         setError({
-          msj: "Hubo un fallo en la conexion",
+          msj: "Hubo un fallo en la conexión",
           error: true,
         })
       }
@@ -62,11 +62,11 @@ function LoginUsuario() {
       <form className="flex flex-col gap-2 animate-slide transition-all xl:scale-100 mb-52 p-14 scale-[1.1] animate-sombra " 
       onSubmit={iniciarSesion}>
         <label className="text-4xl font-semibold text-white mb-4" htmlFor="email">
-          Iniciar Sesion
+          Iniciar Sesión
         </label>
         {error.error && <Alerta error={error.msj} />}
         <label className="text-white text-sm capitalize" htmlFor="email">
-          correo electronico
+          correo electrónico
         </label>
         <input
           className="border border-gray-300 p-[8px] text-sm rounded-md transition-all w-[300px] focus:outline-blue-500 active:scale-105"
@@ -85,7 +85,7 @@ function LoginUsuario() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="**********"
         />
-        <input className="border-none h-12 bg-sky-600 text-white rounded-md mt-4 font-bold cursor-pointer hover:bg-sky-500 hover:scale-105 transition-all" type="submit" value="Iniciar sesion" />
+        <input className="border-none h-12 bg-sky-600 text-white rounded-md mt-4 font-bold cursor-pointer hover:bg-sky-500 hover:scale-105 transition-all" type="submit" value="Iniciar sesión" />
       </form>
     </main>
   );
