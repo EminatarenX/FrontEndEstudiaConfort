@@ -254,23 +254,15 @@ const EstudiantesProvider = ({ children }) => {
           id = data.id_habitacion;
       
           
+          
           const enviarImagen = async () => {
-            try {
-              const { data: datos } = await ClienteAxios.post(`/habitacion/imagenc/${id}`, formdata, imagenesConfig);
-  
-       
-            } catch (error) {
-              
-              Swal.fire({
-                title: 'No se pudo agregar la habitacion',
-                icon: 'error',
-                iconColor: '#60A5FA'
-              })
-            }
+          await ClienteAxios.post(`/habitacion/imagenc/${id}`, formdata, imagenesConfig);
+
+           
           };
           
           enviarImagen();
-        }, 3000);
+        }, 1500);
 
         Swal.fire({
           title: 'Habitacion agregada',
