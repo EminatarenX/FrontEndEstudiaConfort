@@ -60,7 +60,7 @@ export default function HabitacionSeleccionada() {
     
     return (
         <main className="flex flex-col gap-10 py-5">   
-            <h1 className="text-center text-4xl text-gray-600">Conoce tu nueva habitacion</h1>
+            <h1 className="text-center text-4xl text-gray-600">Conoce tu nueva habitación</h1>
             <div className="flex items-center justify-around flex-col xl:flex-row">
                 {cargandoImagenes ? (
                     <CargandoJR />
