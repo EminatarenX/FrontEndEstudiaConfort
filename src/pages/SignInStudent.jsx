@@ -117,7 +117,7 @@ const SignInStudent = () => {
           <h2 className='text-white text-2xl mb-5'>Eres administrador de un negocio?</h2>
           <Link
           className='border rounded w-full py-4 text-center text-white font-bold transition-all hover:bg-sky-500 hover:scale-105 hover:border-none hover:shadow-xl '
-          to={'/registrar/admin'}>Regístrate Aquí!</Link>
+          to={'/registrar'}>Regístrate Aquí!</Link>
       </div>
 
     </main>
