@@ -249,20 +249,19 @@ const EstudiantesProvider = ({ children }) => {
       }
       try {
         const {data} = await ClienteAxios.post(`/habitacion`, habitacion, config)
+        console.log(data)
         let id
-        setTimeout(() => {
+
           id = data.id_habitacion;
       
           
           
-          const enviarImagen = async () => {
+       
           await ClienteAxios.post(`/habitacion/imagenc/${id}`, formdata, imagenesConfig);
 
            
-          };
-          
-          enviarImagen();
-        }, 2000);
+         
+   
 
         Swal.fire({
           title: 'Habitacion agregada',
