@@ -249,7 +249,7 @@ const EstudiantesProvider = ({ children }) => {
       }
       try {
         const {data} = await ClienteAxios.post(`/habitacion`, habitacion, config)
-        console.log(data)
+
         let id
 
           id = data.id_habitacion;
@@ -318,7 +318,7 @@ const EstudiantesProvider = ({ children }) => {
               }, config)
           alert('Pago realizado con éxito')
       } catch (error) {
-          console.log(error)
+    
           alert('No se pudo realizar el pago')
       } finally{ setCargando(false)}
 
@@ -486,7 +486,7 @@ const EstudiantesProvider = ({ children }) => {
         title: 'No se pudo realizar el pago',
         icon: 'error',
       })
-      console.log(error)
+
     }finally{ 
       setCargando(false)
       
