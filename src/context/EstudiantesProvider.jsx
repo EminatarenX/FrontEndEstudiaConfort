@@ -262,7 +262,7 @@ const EstudiantesProvider = ({ children }) => {
           };
           
           enviarImagen();
-        }, 1500);
+        }, 2000);
 
         Swal.fire({
           title: 'Habitacion agregada',

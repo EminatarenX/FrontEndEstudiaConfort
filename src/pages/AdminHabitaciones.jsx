@@ -93,21 +93,24 @@ export default function AdminHabitaciones() {
       estado
     }
 
+    
     submitHabitacion(habitacion, formData)
 
-    setModificar(false)
-    setShowCrear(false)
-    setHabitacion({})
-    setDescripcion('')
-    setCapacidad(0)
-    setCiudad('')
-    setDireccion('')
-    setPrecio(0)
-    setEstado('')
-    setPreviewImage('')
-    setPreviewBanio('')
-    setSelectedImage(null)
-    setSelectedBanio(null)
+      
+      setModificar(false)
+      setShowCrear(false)
+      setHabitacion({})
+      setDescripcion('')
+      setCapacidad(0)
+      setCiudad('')
+      setDireccion('')
+      setPrecio(0)
+      setEstado('')
+      setPreviewImage('')
+      setPreviewBanio('')
+      setSelectedImage(null)
+      setSelectedBanio(null)
+
 
   }
 
@@ -228,16 +231,9 @@ export default function AdminHabitaciones() {
                 <option className="text-center" value="3">3</option>
                 <option className="text-center" value="4">4</option>
               </select>
+              
               <label htmlFor="ciudad">Ciudad</label>
 
-{/* 
-              <input
-                value={ciudad}
-                type="text" placeholder="Ciudad"
-                className="rounded p-1 focus:outline-slate-300"
-                onChange={e => setCiudad(e.target.value)}
-              />
- */}
 
               <select name="ciudad" id="ciudad"
                   value={ciudad}
@@ -252,8 +248,6 @@ export default function AdminHabitaciones() {
                   ))
                 }
               </select>
-
-
 
 
               <label>Dirección</label>
