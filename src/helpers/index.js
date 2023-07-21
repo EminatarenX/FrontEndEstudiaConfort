@@ -1,15 +1,15 @@
-export function obtenerFecha (date) {
-    const fecha = new Date(date)
-    const meses = [
-        "enero", "febrero", "marzo", "abril", "mayo", "junio",
-        "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
-      ];
+export function obtenerFecha(date) {
+  const fecha = new Date(date)
+  const meses = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+  ];
 
-    const dia = fecha.getDate()
-    const mes = fecha.getMonth()
-    const anio = fecha.getFullYear()
+  const dia = fecha.getDate()
+  const mes = fecha.getMonth()
+  const anio = fecha.getFullYear()
 
-    return dia + ' de ' + meses[mes] + ' del ' + anio
+  return dia + ' de ' + meses[mes] + ' del ' + anio
 }
 
 export function obtenerNombreMes(numeroMes) {
@@ -22,15 +22,15 @@ export function obtenerNombreMes(numeroMes) {
 }
 
 export function listaMeses() {
-    const meses = [
-        "enero", "febrero", "marzo", "abril", "mayo", "junio",
-        "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
-      ];
-    
-    return meses
+  const meses = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+  ];
+
+  return meses
 }
 
-export function obtenerUniversidades () {
+export function obtenerUniversidades() {
   const universidades = [
     "Asociación Culinaria de México, A.C., Capítulo Suroeste",
     "Colegio Euro-mexicano de Chef y Sommelier",
@@ -48,7 +48,25 @@ export function obtenerUniversidades () {
     "Universidad Politécnica de Chiapas",
     "Universidad Salazar"
   ];
-  
+
+
+
 
   return universidades
+}
+
+
+export function obtenerCiudades() {
+  const ciudades = [
+    "Tuxtla Gutiérrez",
+    "San Cristóbal de Las Casas",
+    "Tapachula",
+    "Palenque",
+    "Comitán",
+    "Chiapa de Corzo",
+    "Suchiapa",
+    "Ocozocoautla de Espinosa",
+    "Berriozábal"];
+
+    return ciudades
 }

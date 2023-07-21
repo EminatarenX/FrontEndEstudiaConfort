@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import useEstudiantes from "../hooks/useEstudiantes";
 import Cargando from "../components/Cargando";
 import Habitacion from "../components/admin/Habitacion";
+import { obtenerCiudades } from "../helpers";
 
 export default function AdminHabitaciones() {
   const { submitHabitacion, habitacionesAdmin, cargando, obtenerHabitacionesAdmin, modificarHabitacion } = useEstudiantes();
@@ -21,6 +22,8 @@ export default function AdminHabitaciones() {
   const [showCrear, setShowCrear] = useState(false);
   const [modificar, setModificar] = useState(false);
   const [habitacion, setHabitacion] = useState({})
+  const [ciudades, setCiudades] = useState([])
+
   function imagenBanio(e) {
     const file = e.target.files[0];
 
@@ -112,7 +115,10 @@ export default function AdminHabitaciones() {
     obtenerHabitacionesAdmin()
   }, [habitacionesAdmin])
 
-
+  useEffect(()=>{
+    const cities = obtenerCiudades()
+    setCiudades(cities)
+  },[])
 
   const alerta = (titulo, icono) => {
     Swal.fire({
@@ -223,12 +229,33 @@ export default function AdminHabitaciones() {
                 <option className="text-center" value="4">4</option>
               </select>
               <label htmlFor="ciudad">Ciudad</label>
+
+{/* 
               <input
                 value={ciudad}
                 type="text" placeholder="Ciudad"
                 className="rounded p-1 focus:outline-slate-300"
                 onChange={e => setCiudad(e.target.value)}
               />
+ */}
+
+              <select name="ciudad" id="ciudad"
+                  value={ciudad}
+                  type="text" placeholder="Ciudad"
+                  className="rounded p-1 focus:outline-slate-300"
+                  onChange={e => setCiudad(e.target.value)}
+              >
+                <option value="">-- Seleccione una opción --</option>
+                {
+                  ciudades.map((ciudad, index)=> (
+                    <option key={index} value={ciudad}>{ciudad}</option>
+                  ))
+                }
+              </select>
+
+
+
+
               <label>Dirección</label>
               <input
                 value={direccion}
