@@ -250,14 +250,14 @@ const EstudiantesProvider = ({ children }) => {
       try {
         const {data} = await ClienteAxios.post(`/habitacion`, habitacion, config)
 
-        let id
-
-          id = data.id_habitacion;
+        const id = data.id_habitacion;
       
+          setTimeout(async() => {
+
+            await ClienteAxios.post(`/habitacion/imagenc/${id}`, formdata, imagenesConfig);
+
+          }, 2500);
           
-          
-       
-          await ClienteAxios.post(`/habitacion/imagenc/${id}`, formdata, imagenesConfig);
 
            
          
@@ -268,6 +268,7 @@ const EstudiantesProvider = ({ children }) => {
           icon: 'success',
           iconColor: '#60A5FA'
         });
+        
       } catch (error) {
 
         Swal.fire({
